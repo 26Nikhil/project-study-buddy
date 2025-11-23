@@ -36,7 +36,7 @@ def build_vector_store_from_documents() -> None:
     vector_store_path.mkdir(parents=True, exist_ok=True)
 
     logger.info(f"Loading documents from directory: {docs_dir_path}")
-    loader = SimpleDirectoryReader(input_dir=str(docs_dir_path))
+    loader = SimpleDirectoryReader(input_dir=str(docs_dir_path), recursive=True)
     documents = loader.load_data()
     logger.info(f"Loaded {len(documents)} documents")
 
